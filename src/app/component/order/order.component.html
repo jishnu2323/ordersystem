@@ -1,0 +1,158 @@
+<div class="btn_top">
+<button class="btn btn-warning float-right"  (click)="open(mymodal)">Add Order</button>
+</div>
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ADD ORDER</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+      <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="ordernumber"
+               name="ordernumber"
+               [(ngModel)]="model.ordernumber"
+               placeholder="Order Number">
+      </div>
+    
+       <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="orderduedate"
+               name="orderduedate"
+               [(ngModel)]="model.orderduedate"
+               placeholder="orderduedate">
+      </div>
+      <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="name"
+               name="name"
+               [(ngModel)]="model.name"
+               placeholder="Name">
+      </div>
+      <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="address"
+               name="address"
+               [(ngModel)]="model.address"
+               placeholder="address">
+      </div>
+      <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="Number"
+             name="Number"
+             [(ngModel)]="model.number"
+             placeholder="Phone Number">
+      </div>
+      <div class="form-group position">
+        <input type="text"
+               class="form-control positionInput"
+               id="ordertotal"
+             name="ordertotal"
+             [(ngModel)]="model.ordertotal"
+             placeholder="ordertotal">
+      </div>
+      <div class="submitBtnContainer">
+        <button type="submit" class="saveBtn" (click)="modal.close(addOrders())">SAVE</button>
+      </div>
+</ng-template>
+
+  
+  <div class="tableWrapper">
+  <div class="containerTitle">
+    <div class="oneTitle">Order Number</div>
+    <div class="oneTitle">Order Due Date</div>
+    <div class="oneTitle">Customer Name</div>
+    <div class="oneTitle">Customer Address</div>
+    <div class="oneTitle">Customer Number</div>
+    <div class="twoTitle">Order Total</div>
+
+    <div class="threeTitle">Actions</div>
+    
+  </div>
+  
+  <div class="containerListItems" *ngFor="let orders of orders; let i = index" [style.background-color]="changeColorOne()">
+    <div class="one">{{orders.ordernumber}}</div>
+    <div class="one">{{orders.orderduedate}}</div>
+    <div class="one">{{orders.name}}</div>
+    <div class="one">{{orders.address}}</div>
+    <div class="one">{{orders.Number}}</div>
+    <div class="one">{{orders.ordertotal}}</div>
+    <div class="one">
+      <button  class="btn btn-primary" (click)="editOrders(i)">Edit</button>
+      <button class="btn btn-danger" (click)="deleteOrders(i)">Delete</button>
+    </div>
+  
+  </div>
+  </div>
+  
+  
+  
+  <div class="editTitleContainer">
+    <div class="">Edit Orders</div>
+  
+ 
+  <form>
+    <div class="form-group name">
+        
+        <input type="text"
+               class="form-control"
+               id="ordernumber"
+               name="ordernumber"
+               [(ngModel)]="model2.ordernumber"
+               placeholder="Order Number">
+      </div>
+    <div class="form-group name">
+        
+        <input type="text"
+               class="form-control"
+               id="orderduedate"
+               name="orderduedate"
+               [(ngModel)]="model2.orderduedate"
+               placeholder="orderduedate">
+      </div>
+    <div class="form-group name">
+        
+        <input type="text"
+               class="form-control"
+               id="name"
+               name="name"
+               [(ngModel)]="model2.name"
+               placeholder="Name">
+      </div>
+    <div class="form-group name">
+      
+        <input type="text"
+               class="form-control"
+               id="address"
+               name="address"
+               [(ngModel)]="model2.address"
+               placeholder="address">
+      </div>
+    <div class="form-group name">
+     
+      <input type="text"
+             class="form-control"
+             id="number"
+             name="number"
+             [(ngModel)]="model2.Number"
+             placeholder="number">
+    </div>
+  
+     <div class="form-group position">
+     
+      <input type="text"
+             class="form-control"
+             id="ordertotal"
+             name="ordertotal"
+             [(ngModel)]="model2.ordertotal"
+             placeholder="ordertotal">
+    </div>
+    <button class="btn btn-info"type="submit" (click)="updateOrder()">Update</button>
+  </form>
+</div>

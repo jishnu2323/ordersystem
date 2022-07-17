@@ -1,0 +1,15 @@
+<div class="login">
+  <div class="form">
+    <form class="login-form">
+      <span >Login</span>
+      <input type="text" [(ngModel)]="loginObj.userName" placeholder="email"  name="userName" required/>
+      <input type="password"[(ngModel)]="loginObj.password" placeholder="password" name="password" required />
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+      </div>
+      
+      <button (click)="login()">login</button>
+    </form>  
+  </div>
+</div>
